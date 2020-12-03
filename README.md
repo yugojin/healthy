@@ -29,3 +29,6 @@ https://docs.google.com/spreadsheets/d/1ci4X53v_vV5nuR_xxpMXvIE1tIMbVwNhuhiLxabv
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+https://fonts.googleapis.com/css?family=Caveat
