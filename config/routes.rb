@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :customers, controllers: {
-  sessions: 'users/sessions',
-  registrations: 'users/registrations'
+  sessions: 'customers/sessions',
+  registrations: 'customers/registrations'
 }
   root 'customers/homes#top'
-  get 'about' => 'customers/items#about'
+  get 'about' => 'customers/homes#about'
   namespace :customers do
     resources :foods,only: [:index, :show, :new, :create] do
       resources :comments, only: [:create]
