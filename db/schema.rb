@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_034340) do
+ActiveRecord::Schema.define(version: 2020_12_04_075110) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(version: 2020_12_03_034340) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "customers_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customers_id"], name: "index_sns_credentials_on_customers_id"
   end
 
 end
