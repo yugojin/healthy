@@ -1,0 +1,2 @@
+module Customers::FoodsHelper
+end
