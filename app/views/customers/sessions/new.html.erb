@@ -15,6 +15,9 @@
             <%= f.submit "ログイン",class: "btn btn-primary btn-lg" %>
           </div>
 
+          <h3 class="sns-link">外部アカウントでログイン</h3>
+          <%= link_to "Google",customer_google_oauth2_omniauth_authorize_path %>
+
           <div class="befor-sing-up">
       　    <p class=sign-up-message"">登録がお済みではない方</p>
       　      <span class="new-link">

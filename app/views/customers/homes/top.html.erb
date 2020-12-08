@@ -1,2 +1,19 @@
-<h1>Customers::Homes#top</h1>
-<p>Find me in app/views/customers/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+			<div class="col-8 text-center">
+				<div class="d-flex">
+					<% @foods.each do |food| %>
+						<div class="top-recommended">
+						  <%= link_to customers_food_path(food.id), class: "btn-link" do %>
+							  <div id="img_field" class="top-food">
+								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_image.jpg") %>
+							  </div>
+							    <p class="top-foods-name"><%= food.food_name %></p>
+						  <% end %>
+						</div>
+					<% end %>
+				</div>
+				<%= link_to "もっと見る>", customers_foods_path, class: "btn-link  text-center" %>
+			</div>
+		</div>
+	</div>

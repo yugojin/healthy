@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'customers/homes#top'
   get 'about' => 'customers/homes#about'
   namespace :customers do
-    resources :foods,only: [:index, :show, :new, :create] do
+    resources :foods,only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create]
       resources :favorites, only: [:create, :destroy]
     end
