@@ -1,2 +1,27 @@
-<h1>Customers::Foods#index</h1>
-<p>Find me in app/views/customers/foods/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= link_to "レシピ投稿",new_customers_food_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+
+  <div class="row">
+			<div class="col-8 text-center">
+				<div class="d-flex">
+					<% @foods.each do |food| %>
+						<div class="recipe-index">
+						  <%= link_to customers_food_path(food.id), class: "btn-link" do %>
+							  <div id="img_field" class="food-img">
+								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_image.jpg") %>
+							  </div>
+							    <p class="food-name">料理名<%= food.food_name %></p>
+							    <p class="food-kcal"><%= food.kcal %>kcal</p>
+							    <p class="food-introduction">料理<%= food.introduction %></p>
+						  <% end %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
