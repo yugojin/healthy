@@ -17,6 +17,8 @@ Healthy to eat
 日々の料理作成時、カロリー把握
 
 ## 設計書
+https://app.diagrams.net/#G1nY4msAhD9kQ4q8rQG5iAV8ESh8MEmddh
+https://docs.google.com/spreadsheets/d/1ucvmwkadUvQQUvbf6B2nHXBYkJxee19GcXM-ToHJR84/edit#gid=0
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1ci4X53v_vV5nuR_xxpMXvIE1tIMbVwNhuhiLxabvbFM/edit#gid=0
@@ -29,5 +31,4 @@ https://docs.google.com/spreadsheets/d/1ci4X53v_vV5nuR_xxpMXvIE1tIMbVwNhuhiLxabv
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+https://fonts.googleapis.com/css?family=Caveat
