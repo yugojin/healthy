@@ -5,6 +5,8 @@ class Customers::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+    @customer = @food.customer
+    @comment = Comment.new
   end
 
   def new
@@ -14,6 +16,7 @@ class Customers::FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.customer_id = current_customer.id
+    byebug
     if @food.save
       redirect_to customers_food_path(@food)
     else

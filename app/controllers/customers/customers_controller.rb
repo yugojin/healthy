@@ -13,4 +13,10 @@ class Customers::CustomersController < ApplicationController
 
   def change
   end
+
+  private
+  def customer_params
+    params.require(:customer).permit(:name, :email, :name_kana)
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_033005) do
+ActiveRecord::Schema.define(version: 2020_12_11_042543) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_12_11_033005) do
     t.text "comment_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.integer "food_id"
   end
 
   create_table "customers", force: :cascade do |t|
