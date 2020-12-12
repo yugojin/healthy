@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'about' => 'customers/homes#about'
   namespace :customers do
     resources :foods,only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
       resources :favorites, only: [:create, :destroy]
     end
 
