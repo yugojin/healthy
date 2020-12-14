@@ -1,0 +1,28 @@
+<h1>検索結果</h1>
+<% if @customer_or_food == "customers"%>
+    <h1>会員</h1>
+    <table>
+        <% @customers.each do |customer| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= customer.name %> </th>
+            </tr>
+        </thead>
+        <% end %>
+    </table>
+
+<% elsif @customer_or_food == "foods" %>
+    <h2>料理</h2>
+    <table>
+    <% @foods.each do |food| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%=link_to food.food_name, customers_food_path(food.id) %></th>
+            </tr>
+        </thead>
+    <% end %>
+    </table>
+ <% else %>
+<% end %>

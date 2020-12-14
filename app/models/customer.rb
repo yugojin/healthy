@@ -17,4 +17,12 @@ class Customer < ApplicationRecord
     end
   end
 
+  def Customer.search(search, customer_or_food)
+    if customer_or_food == "customers"
+       Customer.where(['name LIKE ?', "%#{search}%"])
+    else
+       Customer.all
+    end
+  end
+
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 }
   root 'customers/homes#top'
   get 'about' => 'customers/homes#about'
+  get "search" => "customers/customers#search"
   namespace :customers do
     resources :foods,only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
