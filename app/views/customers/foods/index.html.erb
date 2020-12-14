@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-2">
+    <div class="left-bar col-2">
       <%= link_to "レシピ投稿",new_customers_food_path, class: "btn btn-warning" %>
     </div>
   </div>
@@ -38,5 +38,17 @@
 				</div>
 			</div>
 		</div>
+　
+		<div class="row">
+    	<div class="right bar col-2">
+    		<h3 class="rank">いいねランキング</h3>
+    		<% @foods.each do |food| %>
+    			<p><%= food.food_name %></p>
+    			<i class="fa fa-heart" aria-hidden="true"></i>
+    			<p><%= food.favorites.count %></p>
+    		<% end %>
+    	</div>
+    </div>
+
 	</div>
 </div>

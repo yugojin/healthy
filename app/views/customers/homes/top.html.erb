@@ -6,7 +6,7 @@
 						<div class="top-recommended">
 						  <%= link_to customers_food_path(food.id), class: "btn-link" do %>
 							  <div id="img_field" class="top-food">
-								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_image.jpg") %>
+								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_img.jpg") %>
 							  </div>
 							    <p class="top-foods-name"><%= food.food_name %></p>
 						  <% end %>
