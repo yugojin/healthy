@@ -16,8 +16,9 @@ class Customers::FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.customer_id = current_customer.id
-    byebug
+    @tag_list = params[:food][:tag_ids].split(',')
     if @food.save
+       @food.save_tags(@tag_list)
       redirect_to customers_food_path(@food)
     else
       render 'new'

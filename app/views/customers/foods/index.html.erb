@@ -12,11 +12,14 @@
 						<div class="recipe-index">
 						  <%= link_to customers_food_path(food.id), class: "btn-link" do %>
 							  <div id="img_field" class="food-img">
-								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_image.jpg") %>
+								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_img.jpg") %>
 							  </div>
 							    <p class="food-name">料理名<%= food.food_name %></p>
 							    <p class="food-kcal"><%= food.kcal %>kcal</p>
 							    <p class="food-introduction">料理<%= food.introduction %></p>
+							    <% food.tags.each do |tag| %>
+							    	<p class="tag"><%= tag.name %></p>
+							    <% end %>
 							    <p class="food-favorite">
 							    <% if food.favorited_by?(current_customer) %></p>
            					<%= link_to customers_food_favorites_path(food), method: :delete do %>
