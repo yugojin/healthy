@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_042543) do
+ActiveRecord::Schema.define(version: 2020_12_12_084458) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -84,6 +84,21 @@ ActiveRecord::Schema.define(version: 2020_12_11_042543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customers_id"], name: "index_sns_credentials_on_customers_id"
+  end
+
+  create_table "tag_relationships", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_tag_relationships_on_food_id"
+    t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
