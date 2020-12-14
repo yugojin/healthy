@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
 
   has_many :foods, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_foods, through: :favorites, source: :food
   has_many :comments, dependent: :destroy
 
   def self.from_omniauth(auth)
