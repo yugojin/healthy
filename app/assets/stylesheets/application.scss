@@ -15,6 +15,8 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "slick-theme";
+ @import "slick";
 
  header {
   background-color: #E6FFE9;
@@ -30,4 +32,13 @@
   width: 100%;
   height: 60px;
   background-color: #E6FFE9;
+}
+
+.preview {
+ text-align : center
+}
+
+.slider {
+  height: 200px;
+  width : 100%;
 }

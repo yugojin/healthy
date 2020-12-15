@@ -8,13 +8,13 @@
     </div>
 
     <div class="food">
-      <strong class="recipe-name">商品名</strong>
+      <strong class="recipe-name">料理名</strong>
         <%= @food.food_name %>
     </div>
 
     <div class="food-kcal">
-      <strong class="recipe-kcal">kcal</strong>
-        <%= @food.kcal %>
+      <strong class="recipe-kcal"></strong>
+        <%= @food.kcal %> kcal
     </div>
 
     <div class="recipe">
@@ -23,32 +23,15 @@
     </div>
 
     <div class="edit-btn">
-      <%#<% if @customer == current_customer %>
+      <% if @customer == current_customer %>
         <%= link_to "編集する", edit_customers_food_path(@food), class: "btn btn-primary" %>
-      <%#<% end %>
+      <% end %>
     </div>
   <table class="table">
-    <tbody>
-      <td class="comment-list bt style-2" id="comments"></td>
-        <% @food.comments.each do |comment| %>
-      <tr>
-        <td><%= @food.customer.name %></td>
-        <td><%= comment.comment_content %></td>
-        <td><% if comment.customer == current_customer %>
-              <%= link_to "削除", customers_food_comment_path(comment.food, comment), method: :delete, class: "btn btn-danger pull-left" %>
-            <% end %>
-        </td>
-      </tr>
-        <% end %>
+    <tbody id="comments_area">
+      <%= render partial: 'customers/comments/index',locals: {comments: @comments } %>
     </tbody>
   </table>
-  <%= form_with(model:[:customers, @food, @comment], local: true) do |f| %>
-    <div class="row">
-      <div class="col-12">
-        <%= f.text_area :comment_content, rows:'5', class: "form-control" %>
-      </div>
-    </div>
-   <%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-  <% end %>
+       <%= render partial: 'customers/comments/form', locals: { comment: @comment, food: @food } %>
   </div>
 </div>

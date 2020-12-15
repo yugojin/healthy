@@ -5,10 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-　　<link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
-　　<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+　　<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -35,7 +37,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to 'Home', root_path %></li>
                   <li><%= link_to 'マイページ', customers_customer_path(current_customer) %></li>
-                  <li><%= link_to '料理投稿一覧', customers_foods_path %></li>
+                  <li><%= link_to 'レシピ一覧', customers_foods_path %></li>
                   <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete %></li>
                 </ul>
               </nav>

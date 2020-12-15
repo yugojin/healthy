@@ -8,6 +8,7 @@ class Customers::FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @customer = @food.customer
     @comment = Comment.new
+    @comments = @food.comments.order(created_at: :desc)
   end
 
   def new
