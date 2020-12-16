@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+  <thead><th class="rank text-center">いいねランキング</thead>
+  <tbody>
+    <td>
+      <% foods.each do |food| %>
+        <p><%= food.food_name %></p>
+      	  <i class="fa fa-heart" aria-hidden="true"></i>
+        <p><%= food.favorites.count %></p>
+      <% end %>
+    </td>
+  </tbody>
+</table>

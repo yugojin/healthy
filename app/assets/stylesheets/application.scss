@@ -18,20 +18,33 @@
  @import "slick-theme";
  @import "slick";
 
- header {
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+ .navbar {
   background-color: #E6FFE9;
- }
+  margin: 0 auto;
+}
 
  .logo {
   font-size: 30px;
   font-family: 'Caveat', cursive;
- }
+}
 
- footer {
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #E6FFE9;
+.main {
+ margin : auto 0;
+}
+
+ .serach {
+  margin-top: 20px;
+}
+ 
+ .rank {
+  margin-right: 0;
 }
 
 .preview {
@@ -41,4 +54,9 @@
 .slider {
   height: 200px;
   width : 100%;
+}
+
+footer {
+  height: 30px;
+  background-color: #E6FFE9;
 }

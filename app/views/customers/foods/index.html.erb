@@ -1,53 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="left-bar col-2">
+    <div class="left-bar col-1"><br>
       <%= link_to "レシピ投稿",new_customers_food_path, class: "btn btn-warning" %>
-    </div>
-  </div>
-
-  <div class="row">
-			<div class="col-8 text-center">
-				<div class="d-flex">
-					<% @foods.each do |food| %>
-						<div class="recipe-index">
-						  <%= link_to customers_food_path(food.id), class: "btn-link" do %>
-							  <div id="img_field" class="food-img">
-								  <%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_img.jpg") %>
-							  </div>
-							    <p class="food-name">料理名<%= food.food_name %></p>
-							    <p class="food-kcal"><%= food.kcal %>kcal</p>
-							    <p class="food-introduction">料理<%= food.introduction %></p>
-							    <% food.tags.each do |tag| %>
-							    	<p class="tag"><%= tag.name %></p>
-							    <% end %>
-							    <div id="favorites_buttons_<%= food.id %>">
-							    	<%= render partial: 'customers/favorites/favorite', locals: {food: food} %>
-							    </div>
-							<% end %>
-						</div>
-					<% end %>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-    	<div class="right bar col-2">
-    		<div class="serch">
-    			<%= form_tag(search_path, :method => 'get') do %>
-    				<%= select_tag(:option, options_for_select([["会員名", "customers"],["料理名","foods"]]))%>
-    				<%= text_field_tag :search %>
-    				<%= submit_tag '検索' %>
-					<% end %>
-    		</div>
-
-    		<h3 class="rank">いいねランキング</h3>
-    		<% @foods.each do |food| %>
-    			<p><%= food.food_name %></p>
-    			<i class="fa fa-heart" aria-hidden="true"></i>
-    			<p><%= food.favorites.count %></p>
-    		<% end %>
+    	<div class="serach">
+      	<%= render partial: 'customers/foods/serach' %>
     	</div>
     </div>
-
+  
+		<div class="col-md-9 text-center">
+			<div class="d-flex">
+				<% @foods.each do |food| %>
+					<div class="recipe-index">
+						<%= link_to customers_food_path(food.id), class: "btn-link" do %>
+							<div id="img_field" class="food-img">
+								<%= attachment_image_tag(food, :image, size: "180x130", fallback: "no_img.jpg") %>
+							</div>
+								<p class="food-name">料理名<%= food.food_name %></p>
+								<p class="food-kcal"><%= food.kcal %>kcal</p>
+								<p class="food-introduction">料理<%= food.introduction %></p>
+								<% food.tags.each do |tag| %>
+									<p class="tag"><%= tag.name %></p>
+								<% end %>
+							<div id="favorites_buttons_<%= food.id %>">
+								<%= render partial: 'customers/favorites/favorite', locals: {food: food} %>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+			
+		<div class="rank col-md-2">
+	    <div class="rank">
+	    	<%= render partial: 'rank', locals: {  foods: @foods } %>
+	    </div>
+	  </div>
 	</div>
 </div>
