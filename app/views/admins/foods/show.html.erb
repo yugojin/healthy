@@ -1,2 +1,23 @@
-<h1>Admins::Foods#show</h1>
-<p>Find me in app/views/admins/foods/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h4 class="col-8 texy-center">レシピ詳細</h4>
+      <div class="recipe-image">
+        <%= attachment_image_tag @food, :image, :fill, 350, 200, format: 'jpeg' %>
+      </div>
+
+      <div class="food">
+        <strong class="recipe-name">料理名</strong>
+        <%= @food.food_name %>
+      </div>
+
+      <div class="food-kcal">
+        <strong class="recipe-kcal"></strong>
+        <%= @food.kcal %> kcal
+      </div>
+
+      <div class="recipe">
+        <strong class="recipe-introduction">料理説明</strong>
+        <%= @food.introduction %>
+      </div>
+  </div>
+</div>
