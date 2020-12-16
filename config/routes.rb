@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
+  namespace :admins do
+    resources :customers,only: [:index, :show, :edit, :update]
+    resources :foods,only: [:index, :show]
+  end
 
   devise_for :customers, controllers: {
   sessions: 'customers/sessions',
@@ -22,13 +30,5 @@ Rails.application.routes.draw do
   	end
   end
 
-  devise_for :admins, controllers: {
-    sessions: 'admins/sessions'
-  }
-  get 'top'=>'customers#top'
-  namespace :admins do
-    resources :customers,only: [:index, :show, :edit, :update]
-    resources :foods,only: [:index, :show]
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
