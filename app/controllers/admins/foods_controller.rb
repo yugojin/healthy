@@ -1,7 +1,7 @@
 class Admins::FoodsController < ApplicationController
   def index
     @foods = Food.all
-    @foods = Food.includes(:favorited_customers).sort {|a,b| b.favorited_customers.size <=> a.favorited_customers.size}
+    @foods = Food.includes(:favorited_customers).sort { |a, b| b.favorited_customers.size <=> a.favorited_customers.size }
   end
 
   def show
@@ -10,6 +10,7 @@ class Admins::FoodsController < ApplicationController
   end
 
   private
+
   def food_params
     params.require(:food).permit(:food_name, :image, :introduction, :kcal)
   end

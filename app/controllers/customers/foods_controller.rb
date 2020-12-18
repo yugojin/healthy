@@ -1,8 +1,8 @@
 class Customers::FoodsController < ApplicationController
   def index
     @foods = Food.all
-    @foods = Food.includes(:favorited_customers).sort {|a,b| b.favorited_customers.size <=> a.favorited_customers.size}
-    @tag_list = Tag.all 
+    @foods = Food.includes(:favorited_customers).sort { |a, b| b.favorited_customers.size <=> a.favorited_customers.size }
+    @tag_list = Tag.all
   end
 
   def show
@@ -21,7 +21,7 @@ class Customers::FoodsController < ApplicationController
     @food.customer_id = current_customer.id
     @tag_list = params[:food][:tag_ids].split(',')
     if @food.save
-       @food.save_tags(@tag_list)
+      @food.save_tags(@tag_list)
       redirect_to customers_food_path(@food)
     else
       render 'new'
@@ -46,14 +46,15 @@ class Customers::FoodsController < ApplicationController
     @food.destroy
     redirect_to customers_foods_path
   end
-  
+
   def search
-    @tag_list = Tag.all  
-    @tag = Tag.find(params[:tag_id]) 
-    @foods = @tag.foods.all           
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @foods = @tag.foods.all
   end
 
   private
+
   def food_params
     params.require(:food).permit(:food_name, :image, :introduction, :kcal)
   end

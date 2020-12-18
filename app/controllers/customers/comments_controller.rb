@@ -15,6 +15,7 @@ class Customers::CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:comment_content, :food_id, :customer_id)
   end

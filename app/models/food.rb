@@ -13,17 +13,16 @@ class Food < ApplicationRecord
 
   def save_tags(savefood_tags)
     savefood_tags.each do |new_name|
-    food_tag = Tag.find_or_create_by(name: new_name)
-    self.tags << food_tag
+      food_tag = Tag.find_or_create_by(name: new_name)
+      tags << food_tag
     end
   end
 
   def Food.search(search, customer_or_food)
     if customer_or_food == "foods"
-       Food.where(['food_name LIKE ?', "%#{search}%"])
+      Food.where(['food_name LIKE ?', "%#{search}%"])
     else
       Food.all
     end
   end
-
 end
