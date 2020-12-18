@@ -3,35 +3,48 @@
     <h4 class="col-8 texy-center">レシピ詳細</h4>
   </div>
   <div class="row">
-    <div class="recipe-image">
-      <%= attachment_image_tag @food, :image, :fill, 350, 200, format: 'jpeg' %>
-    </div>
-
-    <div class="food">
-      <strong class="recipe-name">料理名</strong>
-        <%= @food.food_name %>
-    </div>
-
-    <div class="food-kcal">
-      <strong class="recipe-kcal"></strong>
-        <%= @food.kcal %> kcal
-    </div>
-
     <div class="recipe">
-      <strong class="recipe-introduction">料理説明</strong>
-        <%= @food.introduction %>
-    </div>
+      <div class="recipe-image">
+        <%= attachment_image_tag @food, :image, :fill, 350, 200, format: 'jpeg', fallback: "no_img.jpg" %>
+      </div>
+      
+      <div class="recipe-show">
+        <div class="food-name">
+          <strong class="recipe-name">料理名</strong>
+            <%= @food.food_name %>
+        </div>
 
-    <div class="edit-btn">
-      <% if @customer == current_customer %>
-        <%= link_to "編集する", edit_customers_food_path(@food), class: "btn btn-primary" %>
-      <% end %>
+        <div class="food-kcal">
+          <strong class="recipe-kcal"></strong>
+            <%= @food.kcal %> kcal
+        </div>
+
+        <div class="recipe-text">
+          <strong class="recipe-introduction">料理説明</strong>
+            <%= @food.introduction %>
+        </div>
+        
+        <div class="tag-list">
+          <% @food.tags.each do |tag| %>
+					  <p class="tag">#<%= tag.name %></p>
+				  <% end %>
+				</div>
+
+        <div class="edit-btn">
+          <% if @customer == current_customer %>
+            <%= link_to "編集する", edit_customers_food_path(@food), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <table class="table">
-    <tbody id="comments_area">
-      <%= render partial: 'customers/comments/index',locals: {comments: @comments } %>
-    </tbody>
-  </table>
-       <%= render partial: 'customers/comments/form', locals: { comment: @comment, food: @food } %>
+    
+    <div class="comments">
+      <table class="table">
+        <tbody id="comments_area">
+          <%= render partial: 'customers/comments/index',locals: {comments: @comments } %>
+        </tbody>
+      </table>
+        <%= render partial: 'customers/comments/form', locals: { comment: @comment, food: @food } %>
+    </div>
   </div>
 </div>

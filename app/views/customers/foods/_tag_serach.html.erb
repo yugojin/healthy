@@ -1,0 +1,10 @@
+<table class="table table-bordered">
+  <thead><th class="text-center">タグ検索</th></thead>
+    <tbody>
+      <td>
+        <% @tag_list.each do |list| %>
+    			<%=link_to list.name, search_path(food_tag_id: list.id) %>
+    		<% end %>
+      </td>
+    </tbody>
+</table>

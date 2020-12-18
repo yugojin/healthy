@@ -16,11 +16,15 @@ Rails.application.routes.draw do
   root 'customers/homes#top'
   get 'about' => 'customers/homes#about'
   get "search" => "customers/customers#search"
+  resources :tags do
+    get 'search', to: 'customers/customers#search'
+  end
   namespace :customers do
     resources :foods,only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+  
 
     resources :customers,only: [:show, :edit, :update] do
 	    member do

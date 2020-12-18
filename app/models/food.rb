@@ -4,8 +4,8 @@ class Food < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_customers, through: :favorites, source: :customer
   has_many :comments, dependent: :destroy
-  has_many  :tag_relationships, dependent: :destroy
-  has_many  :tags, through: :tag_relationships
+  has_many :tag_relationships, dependent: :destroy
+  has_many :tags, through: :tag_relationships
 
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
