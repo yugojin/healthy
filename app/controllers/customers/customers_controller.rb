@@ -31,10 +31,11 @@ class Customers::CustomersController < ApplicationController
   def search
     @customer_or_food = params[:option]
     if @customer_or_food == "customers"
-      @customers = Customer.search(params[:search], @customer_or_food)
+       @customers = Customer.search(params[:search], @customer_or_food)
     else
       @foods = Food.search(params[:search], @customer_or_food)
     end
+    @tag_list = Tag.all  
   end
 
   private

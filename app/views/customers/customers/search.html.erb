@@ -1,26 +1,44 @@
-<% if @customer_or_food == "customers"%>
-  <h1>会員一覧</h1>
-    <table>
-      <% @customers.each do |customer| %>
-        <thead>
-          <tr>
-            <th></th>
-            <th><%= customer.name %> </th>
-          </tr>
-        </thead>
-      <% end %>
-    </table>
+<div class="container">
+  <div class="row">
+    <div class="serach-index col-12 text-center">
+      <% if @customer_or_food == "customers"%>
+        <h3>会員一覧</h3>
+          <table>
+            <% @customers.each do |customer| %>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><%= customer.name %> </th>
+                </tr>
+              </thead>
+            <% end %>
+          </table>
 
-<% else @customer_or_food == "foods" %>
-  <h2>料理一覧</h2>
-    <table>
-      <% @foods.each do |food| %>
-        <thead>
-          <tr>
-            <th></th>
-            <th><%=link_to food.food_name, customers_food_path(food.id) %></th>
-          </tr>
-        </thead>
+      <% elsif @customer_or_food == "foods" %>
+        <h3>料理一覧</h3>
+          <table>
+            <% @foods.each do |food| %>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><%=link_to food.food_name, customers_food_path(food.id) %></th>
+                </tr>
+              </thead>
+            <% end %>
+          </table>
+      <% else %>
+        <h3>タグ一覧</h3>
+          <table>
+            <% @tag_list.each do |list| %>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><%= list.name %></th>
+                </tr>
+              </thead>
+            <% end %>
+          </table>
       <% end %>
-    </table>
-<% end %>
+    </div>
+  </div>
+</div>

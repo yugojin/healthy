@@ -2,6 +2,7 @@ class Customers::FoodsController < ApplicationController
   def index
     @foods = Food.all
     @foods = Food.includes(:favorited_customers).sort {|a,b| b.favorited_customers.size <=> a.favorited_customers.size}
+    @tag_list = Tag.all 
   end
 
   def show
@@ -44,6 +45,12 @@ class Customers::FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
     redirect_to customers_foods_path
+  end
+  
+  def search
+    @tag_list = Tag.all  
+    @tag = Tag.find(params[:tag_id]) 
+    @foods = @tag.foods.all           
   end
 
   private

@@ -2,25 +2,31 @@
   <div class="row">
     <h3 class="col-8 text-center">投稿内容編集</h3>
       <%= form_with model: [:customers, @food], local: true do |f| %>
-        <div class="food-image form-group">
-          <%= attachment_image_tag @food, :image, class: "img-square", fallback: "no_img.jpg", size:"250x200" %>
-        </div>
-        <div class="form-group">
-          <%= f.attachment_field :image %>
-        </div>
-        <div class="form-group">
-          <div class="recipe-name" >
-            <%= f.label "料理名" %>
-            <%= f.text_field :food_name %>
+        <div class="edit-foods d-flex text-center">
+          
+          <div class="food-image form-group">
+            <%= attachment_image_tag @food, :image, class: "img-square", fallback: "no_img.jpg", size:"280x200" %>
           </div>
-          <div class="recipe-kcal" >
-            <%= f.label "kcal" %>
-            <%= f.text_field :kcal %>
+          
+          <div class="edit-food-image">
+            <%= f.attachment_field :image %>
           </div>
-          <div class="recipe-introduction" >
-            <%= f.label "料理説明" %>
-            <%= f.text_area :introduction %>
+          
+          <div class="edit-recipe-name" >
+            <%= f.label "料理名", class: "col-3" %>
+            <%= f.text_field :food_name, class: "col-3" %>
           </div>
+          
+          <div class="edit-recipe-kcal" >
+            <%= f.label "kcal", class: "col-3" %>
+            <%= f.text_field :kcal, class: "col-3" %>
+          </div>
+            
+          <div class="edit-recipe-introduction" >
+            <p class="edit-introduction-text"><%= f.label "料理説明" %></p>
+            <%= f.text_area :introduction, :size=>"60x5"%>
+          </div><br>
+          
           <div class="form-group">
             <%= f.submit "変更を保存", class: "btn btn-primary" %>
           </div>
