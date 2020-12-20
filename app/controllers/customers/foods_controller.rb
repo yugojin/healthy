@@ -1,4 +1,6 @@
 class Customers::FoodsController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
     @foods = Food.all
     @foods = Food.includes(:favorited_customers).sort { |a, b| b.favorited_customers.size <=> a.favorited_customers.size }
