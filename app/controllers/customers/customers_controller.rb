@@ -28,14 +28,17 @@ class Customers::CustomersController < ApplicationController
   end
 
   def search
-    @customer_or_food = params[:option]
-    if @customer_or_food == "customers"
-      @customers = Customer.search(params[:search], @customer_or_food)
+    if params[:food_tag_id].present?
+      @tag_list = Tag.find(params[:food_tag_id])
+      @foods = @tag_list.foods.all
     else
-      @foods = Food.search(params[:search], @customer_or_food)
-    end
-    @tag_list = Tag.find(params[:food_tag_id])
-    @food = @tag_list.foods.all
+      @customer_or_food = params[:option]
+      if @customer_or_food == "customers"
+        @customers = Customer.search(params[:search], @customer_or_food)
+      else
+        @foods = Food.search(params[:search], @customer_or_food)
+      end
+    end    
   end
 
   private
