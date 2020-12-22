@@ -1,2 +1,41 @@
-<h1>Customers::Foods#index</h1>
-<p>Find me in app/views/customers/foods/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="left-bar col"><br>
+      <%= link_to "レシピ投稿",new_customers_food_path, class: "btn btn-warning" %>
+    	<div class="serach">
+      	<%= render partial: 'customers/foods/serach' %>
+    	</div>
+    	<div class="tag-serach col-xs-2"><br>
+    		<%= render partial: 'customers/foods/tag_serach', locals: { tag_list: @tag_list }%>
+    	</div>
+    </div>
+
+		<div class="col-md-7 text-center">
+			<div class="d-block">
+				<% @foods.each do |food| %>
+					<div class="recipe-index">
+						<div id="img_field" class="food-img">
+							<%= attachment_image_tag(food, :image, size: "250x200", fallback: "no_img.jpg") %>
+						</div>
+							<p class="food-name">料理名<%=link_to food.food_name, customers_food_path(food.id) %></p>
+							<p class="food-kcal-"><i class="fas fa-fire-alt"></i><%= food.kcal %>kcal</p>
+							<p class="food-introduction">料理<%= food.introduction %></p>
+							<% food.tags.each do |tag| %>
+								<p class="tag">#<%= tag.name %></p>
+							<% end %>
+						<div id="favorites_buttons_<%= food.id %>">
+							<%= render partial: 'customers/favorites/favorite', locals: {food: food} %>
+						</div>
+					</div>
+				<% end %>
+				<%= paginate @food %>
+			</div>
+		</div>
+
+		<div class="rank col-md-2">
+	    <div class="rank">
+	    	<%= render partial: 'rank', locals: {  foods: @foods } %>
+	    </div>
+	  </div>
+	</div>
+</div>
