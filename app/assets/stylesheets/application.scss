@@ -15,20 +15,96 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "slick-theme";
+ @import "slick";
 
- header {
-  background-color: #E6FFE9;
- }
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
  .logo {
   font-size: 30px;
   font-family: 'Caveat', cursive;
- }
+}
 
- footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #E6FFE9;
+body {
+ margin: 0;
+ display: flex;
+ flex-flow: column;
+ min-height: 100vh;
+ background: -moz-radial-gradient(#FFFFFF, #E6FFE9);
+ background: -webkit-radial-gradient(#FFFFFF, #E6FFE9);
+ background: radial-gradient(#FFFFFF, #E6FFE9);
+}
+
+.main {
+ margin : auto 0;
+ flex: 1;
+}
+
+ .serach {
+  margin-top: 20px;
+}
+
+ .rank {
+  width: 150px;
+  margin-left: 10px;
+}
+
+.preview {
+ position: relative;
+ background-image: image-url(img/img1), image-url(img/img2), image-url(img/img3);
+}
+
+.recipe {
+ display: flex;
+ justify-content: flex-start;
+}
+
+.recipe-show {
+ display: inline-block;
+}
+
+.food-name {
+ font-size: 20px;
+ padding-left: 20px;
+}
+
+.food-kcal {
+ text-align: center;
+}
+
+.recipe-introduction {
+ padding-left: 20px;
+}
+
+.tag-list {
+ padding-left: 20px;
+}
+
+.edit-btn {
+ margin-top: 100px;
+ padding-left: 20px;
+}
+
+.edit-recipe-name {
+ padding-bottom: 10px;
+}
+
+.edit-recipe-kcal {
+ padding-bottom: 10px;
+}
+
+.edit-introduction-text {
+ margin-bottom: 20px;
+}
+
+.comments {
+ margin-top: 100px;
+}
+
+footer {
 }

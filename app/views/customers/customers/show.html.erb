@@ -1,2 +1,48 @@
-<h1>Customers::Customers#show</h1>
-<p>Find me in app/views/customers/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h4 class="text-center bg-info"><strong>マイページ</strong></h4><br>
+        <div>
+          <span><strong>登録情報</strong></span>
+        </div><br>
+        <table class="table table-bordered">
+          <tr>
+            <td class="bg-info" style="width:25%">氏名</td>
+            <td>
+              <%= @customer.name %>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="bg-info">カナ</td>
+            <td>
+              <%= @customer.name_kana %>
+            </td>
+          </tr>
+
+           <tr>
+             <td class="bg-info">郵便番号</td>
+             <td><%= @customer.postal_code %></td>
+           </tr>
+
+           <tr>
+             <td class="bg-info">住所</td>
+             <td><%= @customer.address %></td>
+           </tr>
+
+            <tr>
+              <td class="bg-info">電話番号</td>
+              <td><%= @customer.telephone_number %></td>
+            </tr>
+
+            <tr>
+              <td class="bg-info">メールアドレス</td>
+              <td><%= @customer.email %></td>
+            </tr>
+        </table><br>
+        <div class="edit-mypage">
+          <%= link_to "編集する", edit_customers_customer_path(current_customer), class: "btn btn-primary" %>
+        </div>
+    </div>
+  </div>
+</div>

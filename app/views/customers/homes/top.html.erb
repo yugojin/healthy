@@ -1,2 +1,32 @@
-<h1>Customers::Homes#top</h1>
-<p>Find me in app/views/customers/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<div class="left-bar col">
+  			<%= render partial: 'customers/foods/serach' %>
+  	</div>
+  </div>
+</div>
+  	
+<div class="container">
+	<div class="row">
+		<div class="col-md-9 text-center">
+			<div class="d-flex">
+				<% @foods.each do |food| %>
+					<div class="top-recommended">
+						<div id="img_field" class="top-food">
+							<%= attachment_image_tag(food, :image, size: "250x200", fallback: "no_img.jpg") %>
+						</div>
+							<p class="top-foods-name"><%=link_to food.food_name, customers_food_path(food.id) %></p>
+							<p class="food-kcal"><i class="fas fa-fire-alt"></i><%= food.kcal %>kcal</p>
+					</div>
+				<% end %>
+			</div>
+			<%= link_to "もっと見る>", customers_foods_path, class: "btn-link  text-center" %>
+		</div>
+
+		<div class="rank col-md-2">
+			<div class="rank">
+				<%= render partial: 'customers/foods/rank', locals: {  foods: @foods } %>
+			</div>
+		</div>
+	</div>
+</div>

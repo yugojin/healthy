@@ -8,15 +8,15 @@
         <div class="field form-group"></br>
           <%= f.text_field :name, autofocus: true, placeholder: "名前" %>
         </div>
-        
+
         <div class="field form-group">
           <%= f.text_field :name_kana, autofocus: true, placeholder: "フリガナ" %>
         </div>
-        
+
          <div class="field form-group">
            <%= f.text_field :postal_code, placeholder: "郵便番号" %>
          </div>
-         
+
          <div class="field form-group">
            <%= f.text_field :address, autofocus: true, placeholder: "住所"  %>
          </div>
@@ -24,13 +24,13 @@
         <div class="field form-group">
           <%= f.text_field :telephone_number, placeholder: "電話番号" %>
         </div>
-        
+
         <div class="field">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
         </div>
 
         <div class="field"><br>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード6文字以上" %>
         </div>
 
         <div class="field"><br>
@@ -39,8 +39,11 @@
 
         <div class="actions"><br>
           <%= f.submit "新規登録", class: "btn- btn-success btn-lg" %>
-        </div>  
-        
+        </div>
+
+　　　　<h3 class="sns-link">外部アカウントで登録</h3>
+          <%= link_to "Google",customer_google_oauth2_omniauth_authorize_path %>
+
         <div class="new-link">
       　　<p class="head-line">既に登録済みの方は</p>
       　　<p class="new-link ">

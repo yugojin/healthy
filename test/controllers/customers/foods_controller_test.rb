@@ -20,5 +20,4 @@ class Customers::FoodsControllerTest < ActionDispatch::IntegrationTest
     get customers_foods_create_url
     assert_response :success
   end
-
 end

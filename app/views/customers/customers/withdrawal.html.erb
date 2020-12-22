@@ -1,2 +1,20 @@
-<h1>Customers::Customers#withdrawal</h1>
-<p>Find me in app/views/customers/customers/withdrawal.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="text-center col-xs-12"><br><br><br>
+            <h4 class="head-line"><strong>本当に退会しますか？</strong></h4><br>
+            <div class="text-center">
+                <h4>
+                    退会すると、会員登録情報や<br>
+                    これまでのレシピ投稿履歴が閲覧できなくなります。<br>
+                    退会する場合は、「退会する」をクリックしてください。
+                </h4>
+            </div><br>
+            <div class="form-group row">
+              <div class="text-center">
+                  <%= link_to "退会しない", customers_customer_path, class: "btn btn-primary" %>
+                  <%= link_to "退会する", change_customers_customer_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

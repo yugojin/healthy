@@ -25,5 +25,4 @@ class Customers::CustomersControllerTest < ActionDispatch::IntegrationTest
     get customers_customers_change_url
     assert_response :success
   end
-
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_075110) do
+ActiveRecord::Schema.define(version: 2020_12_12_084458) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_075110) do
     t.text "comment_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.integer "food_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_075110) do
     t.string "false"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -53,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_12_04_075110) do
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "food_id"
+    t.integer "customer_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -62,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_075110) do
     t.integer "kcal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -77,6 +84,21 @@ ActiveRecord::Schema.define(version: 2020_12_04_075110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customers_id"], name: "index_sns_credentials_on_customers_id"
+  end
+
+  create_table "tag_relationships", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_tag_relationships_on_food_id"
+    t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

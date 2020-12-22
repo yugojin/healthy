@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="serach-index col-12 text-center">
+      <% if @customer_or_food == "customers"%>
+        <h3>会員一覧</h3>
+          <table>
+            <% @customers.each do |customer| %>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><%= customer.name %> </th>
+                </tr>
+              </thead>
+            <% end %>
+          </table>
+
+      <% elsif @customer_or_food == "foods" %>
+        <h3>料理一覧</h3>
+          <table>
+            <% @foods.each do |food| %>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><%=link_to food.food_name, customers_food_path(food.id) %></th>
+                </tr>
+              </thead>
+            <% end %>
+          </table>
+      <% else %>
+        <h3>タグ一覧</h3>
+          <table>
+            <% @food.each do |food| %>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th><%= link_to food.food_name, customers_food_path(food.id) %></th>
+                </tr>
+              </thead>
+            <% end %>
+          </table>
+      <% end %>
+    </div>
+  </div>
+</div>

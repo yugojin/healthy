@@ -10,5 +10,4 @@ class Admins::FoodsControllerTest < ActionDispatch::IntegrationTest
     get admins_foods_show_url
     assert_response :success
   end
-
 end
