@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-  	<div class="col-12">
+  	<div class="left-bar col">
   			<%= render partial: 'customers/foods/serach' %>
   	</div>
   </div>
@@ -23,8 +23,10 @@
 			<%= link_to "もっと見る>", customers_foods_path, class: "btn-link  text-center" %>
 		</div>
 
-		<div class="rank col-md-3">
-			<%= render partial: 'customers/foods/rank', locals: {  foods: @foods } %>
+		<div class="rank col-md-2">
+			<div class="rank">
+				<%= render partial: 'customers/foods/rank', locals: {  foods: @foods } %>
+			</div>
 		</div>
 	</div>
 </div>

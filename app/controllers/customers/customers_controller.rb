@@ -34,7 +34,8 @@ class Customers::CustomersController < ApplicationController
     else
       @foods = Food.search(params[:search], @customer_or_food)
     end
-    @tag_list = Tag.all
+    @tag_list = Tag.find(params[:food_tag_id])
+    @food = @tag_list.foods.all
   end
 
   private
@@ -42,4 +43,5 @@ class Customers::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :email, :name_kana, :postal_code, :telephone_number, :address, :is_deleted)
   end
+
 end

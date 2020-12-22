@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |customer|
       customer.email = auth.info.email
+      customer.name = auth.info.name
       customer.password = Devise.friendly_token[0, 20]
     end
   end

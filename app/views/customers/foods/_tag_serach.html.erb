@@ -3,7 +3,7 @@
     <tbody>
       <td>
         <% @tag_list.each do |list| %>
-    			<%=link_to list.name, search_path(food_tag_id: list.id) %>
+    			<p class="tag-serach text-center"><%=link_to list.name, search_path(food_tag_id: list.id) %></p>
     		<% end %>
       </td>
     </tbody>
