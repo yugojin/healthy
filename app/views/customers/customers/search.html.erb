@@ -29,11 +29,11 @@
       <% else %>
         <h3>タグ一覧</h3>
           <table>
-            <% @tag_list.each do |list| %>
+            <% @food.each do |food| %>
               <thead>
                 <tr>
                   <th></th>
-                  <th><%= list.name %></th>
+                  <th><%= link_to food.food_name, customers_food_path(food.id) %></th>
                 </tr>
               </thead>
             <% end %>

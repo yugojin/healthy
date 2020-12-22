@@ -6,10 +6,10 @@
       	<%= render partial: 'customers/foods/serach' %>
     	</div>
     	<div class="tag-serach col-xs-2"><br>
-    		<%= render partial: 'customers/foods/tag_serach', locals: {  tag_list: @tag_list }%>
+    		<%= render partial: 'customers/foods/tag_serach', locals: { tag_list: @tag_list }%>
     	</div>
     </div>
-  
+
 		<div class="col-md-7 text-center">
 			<div class="d-block">
 				<% @foods.each do |food| %>
@@ -28,9 +28,10 @@
 						</div>
 					</div>
 				<% end %>
+				<%= paginate @food %>
 			</div>
 		</div>
-			
+
 		<div class="rank col-md-2">
 	    <div class="rank">
 	    	<%= render partial: 'rank', locals: {  foods: @foods } %>
