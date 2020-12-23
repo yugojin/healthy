@@ -8,8 +8,8 @@
   	
 <div class="container">
 	<div class="row">
-		<div class="col-md-9 text-center">
-			<div class="d-flex">
+		<div class="col-md-10 text-center">
+			<div class="d-block">
 				<% @foods.each do |food| %>
 					<div class="top-recommended">
 						<div id="img_field" class="top-food">
@@ -23,7 +23,7 @@
 			<%= link_to "もっと見る>", customers_foods_path, class: "btn-link  text-center" %>
 		</div>
 
-		<div class="rank col-md-2">
+		<div class="rank col-md-1">
 			<div class="rank">
 				<%= render partial: 'customers/foods/rank', locals: {  foods: @foods } %>
 			</div>
