@@ -10,7 +10,7 @@
 							  </div>
 							    <p class="food-name">料理名<%= food.food_name %></p>
 							    <p class="food-kcal"><%= food.kcal %>kcal</p>
-							    <p class="food-introduction"><%= ・food.introduction %></p>
+							    <p class="food-introduction">・<%= food.introduction %></p>
 							    <% food.tags.each do |tag| %>
 							    	<p class="tag">#<%= tag.name %></p>
 							    <% end %>
