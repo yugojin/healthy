@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row">
-    <h4 class="col-8 texy-center">レシピ詳細</h4>
-      <div class="recipe-image">
+    <h4 class="col-8 text-center">レシピ詳細</h4>
+      <div class="admin-recipe-image">
         <%= attachment_image_tag @food, :image, :fill, 350, 200, format: 'jpeg' %>
       </div>
 
-      <div class="food">
-        <strong class="recipe-name">料理名</strong>
+      <div class="admin-food">
+        <strong class="admin-recipe-name">料理名</strong>
         <%= @food.food_name %>
       </div>
 
-      <div class="food-kcal">
-        <strong class="recipe-kcal"></strong>
+      <div class="admin-food-kcal">
+        <strong class="admin-recipe-kcal"></strong>
         <%= @food.kcal %> kcal
       </div>
 
-      <div class="recipe">
-        <strong class="recipe-introduction">料理説明</strong>
+      <div class="admin-recipe">
+        <strong class="admin-recipe-introduction">料理説明</strong>
         <%= @food.introduction %>
       </div>
   </div>
