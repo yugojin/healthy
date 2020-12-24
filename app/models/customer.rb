@@ -18,6 +18,12 @@ class Customer < ApplicationRecord
     end
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@gmail.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   def Customer.search(search, customer_or_food)
     if customer_or_food == "customers"
       Customer.where(['name LIKE ?', "%#{search}%"])
