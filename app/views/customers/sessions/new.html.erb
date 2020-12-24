@@ -17,6 +17,9 @@
 
           <h3 class="sns-link">外部アカウントでログイン</h3>
           <%= link_to "Google",customer_google_oauth2_omniauth_authorize_path %>
+          <div class="guest-sign-in"><br>
+            <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
+          </div>
 
           <div class="befor-sing-up">
       　    <p class=sign-up-message"">登録がお済みではない方</p>

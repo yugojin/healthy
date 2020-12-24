@@ -29,6 +29,12 @@ class Customers::SessionsController < Devise::SessionsController
     end
   end
 
+  def new_guest
+    customer = Customer.guest
+    sign_in customer
+    redirect_to customers_foods_path
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
