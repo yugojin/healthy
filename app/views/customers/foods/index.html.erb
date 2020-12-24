@@ -19,7 +19,7 @@
 						</div>
 							<p class="food-name">料理名<%=link_to food.food_name, customers_food_path(food.id) %></p>
 							<p class="food-kcal-"><i class="fas fa-fire-alt"></i><%= food.kcal %>kcal</p>
-							<p class="food-introduction">料理<%= food.introduction %></p>
+							<p class="food-introduction">・<%= food.introduction %></p>
 							<% food.tags.each do |tag| %>
 								<p class="tag">#<%= tag.name %></p>
 							<% end %>
