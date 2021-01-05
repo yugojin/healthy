@@ -1,6 +1,6 @@
 class Customers::FoodsController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def index
     @food = Food.page(params[:id]).per(5).order('updated_at DESC')
     @foods = Food.includes(:favorited_customers).sort { |a, b| b.favorited_customers.size <=> a.favorited_customers.size }
@@ -21,8 +21,10 @@ class Customers::FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.customer_id = current_customer.id
-    @tag_list = params[:food][:tag_ids].split(',')
     if @food.save
+      google_tag_list = Vision.get_image_data(@food.image)
+      input_tag_list = params[:food][:tag_ids].split(',')
+      @tag_list = google_tag_list.concat(input_tag_list)
       @food.save_tags(@tag_list)
       redirect_to customers_food_path(@food)
     else
