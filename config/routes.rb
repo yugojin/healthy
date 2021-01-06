@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations',
     omniauth_callbacks: 'customers/omniauth_callbacks',
   }
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#new_guest'
+  end
+  
   root 'customers/homes#top'
   get 'about' => 'customers/homes#about'
   get "search" => "customers/customers#search"
