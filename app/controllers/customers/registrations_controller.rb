@@ -1,13 +1,7 @@
 # frozen_string_literal: true
 
 class Customers::RegistrationsController < Devise::RegistrationsControlle
-  before_action :check_guest, only: :change
 
-  def check_guest
-    if resource.email == 'guest@gmail.com'
-      redirect_to root_path
-    end
-  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
