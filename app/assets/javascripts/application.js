@@ -17,4 +17,15 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+/* global $*/
+document.addEventListener("turbolinks:load"
+, function () {
+    $(function() {
+        $('.slider').slick({
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 1500,
+        });
+    });
+ })
 
