@@ -7,6 +7,8 @@ class Food < ApplicationRecord
   has_many :tag_relationships, dependent: :destroy
   has_many :tags, through: :tag_relationships
 
+  validates :image, :food_name, presence: true
+
   def favorited_by?(customer)
     favorites.where(customer_id: customer.id).exists?
   end

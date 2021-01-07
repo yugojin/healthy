@@ -70,6 +70,7 @@ gem 'kaminari', '~> 1.2.1'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'rails-i18n'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
