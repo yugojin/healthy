@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      food:
+        food_name: 料理名
+        image: 画像
