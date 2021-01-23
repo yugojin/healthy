@@ -11,7 +11,7 @@ class Customers::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
     if @customer.save
-      redirect_to customers_customer_path
+      redirect_to customer_path
     else
       render action: :edit
     end
