@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i(google_oauth2)
 
+  attachment :image
   has_many :foods, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_foods, through: :favorites, source: :food

@@ -38,13 +38,13 @@ class Customers::CustomersController < ApplicationController
       else
         @foods = Food.search(params[:search], @customer_or_food)
       end
-    end    
+    end
   end
 
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :email, :name_kana, :postal_code, :telephone_number, :address, :is_deleted)
+    params.require(:customer).permit(:name, :email, :name_kana, :postal_code, :telephone_number, :address, :is_deleted, :image)
   end
 
 end
