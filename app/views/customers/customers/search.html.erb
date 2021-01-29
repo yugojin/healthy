@@ -32,7 +32,7 @@
             <% @foods.each do |food| %>
               <thead>
                 <tr>
-                  <th></th>
+                  <th><%= attachment_image_tag food, :image, size: "100x100", format: 'jpeg', fallback: "no_img.jpg" %></th></th>
                   <th><%= link_to food.food_name, customers_food_path(food.id) %></th>
                 </tr>
               </thead>
