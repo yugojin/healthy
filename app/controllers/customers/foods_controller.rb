@@ -2,8 +2,8 @@ class Customers::FoodsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @food = Food.page(params[:id]).per(5).order('updated_at DESC')
-    @foods = Food.includes(:favorited_customers).sort { |a, b| b.favorited_customers.size <=> a.favorited_customers.size }
+    @foods = Food.find(Favorite.group(:food_id).order('count(food_id) desc').limit(5).pluck(:food_id))
+    @food= Food.page(params[:id]).per(5)
     @tag_list = Tag.all
   end
 

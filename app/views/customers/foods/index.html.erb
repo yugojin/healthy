@@ -12,7 +12,7 @@
 
 		<div class="col-md-7 text-center">
 			<div class="d-block">
-				<% @foods.each do |food| %>
+				<% @food.each do |food| %>
 					<div class="recipe-index">
 						<div id="img_field" class="food-img">
 							<%= attachment_image_tag(food, :image, size: "250x200", fallback: "no_img.jpg") %>
@@ -28,6 +28,7 @@
 						</div>
 					</div>
 				<% end %>
+				<%= paginate @food %>
 			</div>
 		</div>
 
